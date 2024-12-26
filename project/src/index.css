@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #FF00C1 0%, #F4AC24 100%);
+  --secondary-gradient: linear-gradient(135deg, #A76DFC 0%, #5C1CB2 100%);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: #0d1117;
+  color: white;
+}
+
+.app {
+  overflow-x: hidden;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient {
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-light-gray {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.title-wrapper {
+  position: relative;
+}
+
+.title-line {
+  height: 4px;
+  background: var(--primary-gradient);
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+/* Button Styles */
+.btn-gradient {
+  background: var(--primary-gradient);
+  border: none;
+  color: white;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-gradient);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-gradient:hover::before {
+  opacity: 1;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #F4AC24;
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Avatar Styles */
+.avatar-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.avatar-glow {
+  position: relative;
+  border-radius: 50%;
+  padding: 2rem;
+  transform-style: preserve-3d;
+}
+
+.avatar-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(244, 172, 36, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+/* Particles Background */
+.particles-bg {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Navigation */
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(13, 17, 23, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Content padding for fixed navbar */
+section {
+  padding-top: 80px;
+}
